@@ -131,7 +131,7 @@ function CalendarView({ calendarEvents, addNewEvent, openDayDetail }) {
           </div>
           <div>
             <button
-              className="btn  btn-sm btn-ghost bg-[#5D17EB] text-white normal-case"
+              className="btn px-6 btn-sm normal-case btn-primary"
               onClick={addNewEvent}
             >
               Add New Event
