@@ -29,7 +29,7 @@ export const Login = () => {
       setLoading(true);
       let result = null;
       try {
-        const response = await fetch(API_URL + "users/login", {
+        const response = await fetch(API_URL + "data/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -57,7 +57,7 @@ export const Login = () => {
         // const storedUser = JSON.parse(localStorage.getItem("user"));
         // const userName = storedUser?.firstName;
         setLoading(false);
-        navigate("/app/welcome");
+        navigate("/app/team");
         // toast.success(`Welcome ${userName}`, {
         //   position: "top-right",
         //   autoClose: 1000,

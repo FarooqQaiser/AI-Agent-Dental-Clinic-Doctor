@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { API_URL } from "../../store";
 
 export default function AddTeamMember({ setShowAddTeamMember }) {
-  const business = "672df89b557f80708102b786";
   const [loading, setLoading] = useState(false);
   const [memberName, setMemberName] = useState("");
   const [memberEmail, setMemberEmail] = useState("");
   const [memberRole, setMemberRole] = useState("");
+  const [user, setUser] = useState(null);
+  const [business, setBusiness] = useState(null);
 
   const roles = ["Owner", "Admin", "Manager", "Support"];
+
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const parsedUser = JSON.parse(storedUser);
+      setUser(parsedUser);
+      setBusiness(parsedUser.id);
+    }
+  }, []); 
 
   const createMember = async () => {
     if (memberName && memberEmail && memberRole) {
